@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Hasret Zeytincilik">
+  <rect width="128" height="128" rx="28" fill="#f7f0e3"/>
+  <circle cx="64" cy="64" r="53" fill="#f7f0e3" stroke="#294d68" stroke-width="2.5"/>
+  <circle cx="64" cy="64" r="47" fill="none" stroke="#d3a45e" stroke-width="1.7"/>
+  <g fill="#294d68"><path d="M64 13l3 4-3 4-3-4zM64 107l3 4-3 4-3-4zM13 64l4-3 4 3-4 3zM107 64l4-3 4 3-4 3z"/><circle cx="29" cy="29" r="1.7"/><circle cx="99" cy="29" r="1.7"/><circle cx="29" cy="99" r="1.7"/><circle cx="99" cy="99" r="1.7"/></g>
+  <g fill="none" stroke="#d09a48" stroke-linecap="round"><path d="M54 39a10 10 0 0 1 20 0" stroke-width="2.4"/><path d="M64 21v5M49 27l4 5M79 27l-4 5M43 38h6M79 38h6" stroke-width="2"/></g>
+  <circle cx="64" cy="39" r="6" fill="#d09a48"/>
+  <g fill="none" stroke="#64744b" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M64 88V55M63 72L43 57M64 66l21-17M63 81L43 72M64 78l22-7"/><path d="M64 88c-2 4-6 6-11 9M64 88c2 4 6 6 11 9" stroke-width="2"/></g>
+  <g fill="#87915c"><path d="M42 52c8 0 14 4 16 10-8 1-14-3-16-10M71 52c2-7 8-11 15-10-2 8-7 12-15 10M37 68c8-2 14 0 19 6-8 2-14 0-19-6M73 68c5-6 11-8 19-6-5 7-11 9-19 6"/></g>
+  <g fill="#71824d" stroke="#f7f0e3" stroke-width=".9"><ellipse cx="50" cy="66" rx="3.6" ry="5.5" transform="rotate(-25 50 66)"/><ellipse cx="79" cy="55" rx="3.6" ry="5.5" transform="rotate(28 79 55)"/><ellipse cx="51" cy="79" rx="3.6" ry="5.5" transform="rotate(-32 51 79)"/><ellipse cx="80" cy="75" rx="3.6" ry="5.5" transform="rotate(25 80 75)"/></g>
+  <g fill="none" stroke="#d3a45e" stroke-linecap="round"><path d="M32 93q16-8 32 0t32 0M36 99q14-6 28 0t28 0" stroke-width="1.6"/></g>
+</svg>

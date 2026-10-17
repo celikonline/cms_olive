@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 112" role="img" aria-labelledby="title desc">
+  <title id="title">Hasret Zeytincilik</title>
+  <desc id="desc">Ege güneşi, zeytin ağacı ve çini motiflerinden oluşan yöresel marka amblemi</desc>
+  <circle cx="56" cy="56" r="52" fill="#f7f0e3" stroke="#294d68" stroke-width="2"/>
+  <circle cx="56" cy="56" r="46" fill="none" stroke="#d3a45e" stroke-width="1.4"/>
+  <g fill="#294d68">
+    <path d="M56 7l3 4-3 4-3-4zM56 97l3 4-3 4-3-4zM7 56l4-3 4 3-4 3zM97 56l4-3 4 3-4 3z"/>
+    <circle cx="22" cy="22" r="1.5"/><circle cx="90" cy="22" r="1.5"/>
+    <circle cx="22" cy="90" r="1.5"/><circle cx="90" cy="90" r="1.5"/>
+  </g>
+  <g fill="none" stroke="#d09a48" stroke-linecap="round">
+    <path d="M47 32a9 9 0 0 1 18 0" stroke-width="2"/>
+    <path d="M56 17v4M43 22l3 4M69 22l-3 4M38 31h5M69 31h5" stroke-width="1.7"/>
+  </g>
+  <circle cx="56" cy="32" r="5.5" fill="#d09a48"/>
+  <g fill="none" stroke="#64744b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
+    <path d="M56 76V48M55 61L39 49M56 56l17-14M55 68L39 61M56 65l18-4"/>
+    <path d="M56 76c-2 3-5 5-9 7M56 76c2 3 5 5 9 7" stroke-width="1.7"/>
+  </g>
+  <g fill="#87915c">
+    <path d="M38 44c7 0 11 3 13 9-7 0-11-3-13-9M62 44c2-6 7-9 13-9-2 7-6 10-13 9M34 58c7-2 12 0 16 5-7 2-12 0-16-5M68 57c4-5 9-7 16-5-4 6-9 7-16 5"/>
+  </g>
+  <g fill="#71824d" stroke="#f7f0e3" stroke-width=".7">
+    <ellipse cx="45" cy="55" rx="3" ry="4.5" transform="rotate(-25 45 55)"/>
+    <ellipse cx="69" cy="47" rx="3" ry="4.5" transform="rotate(28 69 47)"/>
+    <ellipse cx="46" cy="65" rx="3" ry="4.5" transform="rotate(-32 46 65)"/>
+    <ellipse cx="70" cy="62" rx="3" ry="4.5" transform="rotate(25 70 62)"/>
+  </g>
+  <g fill="none" stroke="#d3a45e" stroke-linecap="round">
+    <path d="M27 79q14-7 29 0t29 0M31 84q12-5 25 0t25 0" stroke-width="1.4"/>
+  </g>
+  <path d="M126 31h.8M126 83h.8" stroke="#d3a45e" stroke-width="2"/>
+  <text x="143" y="59" fill="#294354" font-family="Georgia, 'Times New Roman', serif" font-size="35" letter-spacing="2.3">HASRET</text>
+  <text x="146" y="81" fill="#64744b" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="600" letter-spacing="3.8">ZEYTİNCİLİK</text>
+  <path d="M146 91h194" stroke="#d3a45e" stroke-width="1"/>
+</svg>

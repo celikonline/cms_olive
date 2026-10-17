@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 112" role="img" aria-labelledby="title desc">
+  <title id="title">Hasret Zeytincilik</title>
+  <desc id="desc">Zeytin dalı kabartmalı, balmumu mühür biçiminde Hasret Zeytincilik logosu</desc>
+  <defs>
+    <radialGradient id="wax" cx="34%" cy="27%" r="78%">
+      <stop offset="0" stop-color="#a6a36b"/>
+      <stop offset=".46" stop-color="#737746"/>
+      <stop offset="1" stop-color="#3e4a31"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c9bd83" stop-opacity=".85"/>
+      <stop offset=".52" stop-color="#e0d3a0" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#303a29" stop-opacity=".8"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.3" result="blur"/>
+      <feOffset dy="2.5" result="offset"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".24"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M55 5c6-2 10 4 15 4 6 0 9-4 14 0s3 10 8 13 11 1 13 7-3 10 0 15 10 7 9 13-7 8-7 14 5 10 1 15-11 3-15 8-3 11-9 12-9-5-15-4-9 7-15 5-6-9-12-11-11 1-15-4 0-10-4-15-10-5-11-12 5-9 4-15-8-9-6-15 9-6 11-12 0-11 6-14 10 2 16-1 8-9 14-8z" fill="url(#wax)" stroke="#455137" stroke-width="1.5"/>
+    <path d="M55 10c6-2 9 4 14 4 5 0 8-4 12 0s3 9 7 12 10 1 12 6-3 9 0 14 9 6 8 12-6 7-6 13 4 9 0 13-10 3-13 7-3 10-8 11-8-4-14-3-8 6-14 4-5-8-10-10-10 1-14-4 0-9-4-13-9-5-10-11 5-8 4-14-7-8-5-13 8-6 10-11 0-10 5-12 9 2 14-1 7-8 12-7z" fill="none" stroke="url(#rim)" stroke-width="1.8"/>
+    <circle cx="56" cy="56" r="34" fill="none" stroke="#d3ca98" stroke-opacity=".52" stroke-width="1.1"/>
+    <circle cx="56" cy="56" r="30" fill="none" stroke="#303a29" stroke-opacity=".5" stroke-width="1"/>
+    <g fill="#dfd39d" opacity=".82">
+      <circle cx="56" cy="20" r="1.2"/><circle cx="56" cy="92" r="1.2"/><circle cx="20" cy="56" r="1.2"/><circle cx="92" cy="56" r="1.2"/>
+      <circle cx="31" cy="31" r="1.1"/><circle cx="81" cy="31" r="1.1"/><circle cx="31" cy="81" r="1.1"/><circle cx="81" cy="81" r="1.1"/>
+    </g>
+    <text x="56" y="68" text-anchor="middle" fill="#d6cc9a" stroke="#343d2b" stroke-opacity=".42" stroke-width=".7" paint-order="stroke" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="bold" letter-spacing="-3">HZ</text>
+    <path d="M34 73c12-5 22-15 30-29M41 67c-7 0-11-3-14-8 7 0 12 2 15 6M52 57c-1-6 1-10 5-14 3 5 2 9-1 14M61 51c6-3 11-2 15 2-5 4-10 4-15 1M35 74c7 2 15 2 22-1" fill="none" stroke="#3b472f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M27 59c7 0 12 2 15 6-7 1-12-1-15-6M56 43c3 4 3 8 1 12-3-4-3-8-1-12M76 53c-5 3-10 3-15 1 5-3 10-3 15-1" fill="#e0d6a4" stroke="#3c482f" stroke-width=".8"/>
+    <ellipse cx="45" cy="63" rx="2.5" ry="3.6" transform="rotate(-28 45 63)" fill="#d5ca94" stroke="#3c482f" stroke-width=".7"/>
+    <ellipse cx="63" cy="52" rx="2.5" ry="3.6" transform="rotate(24 63 52)" fill="#d5ca94" stroke="#3c482f" stroke-width=".7"/>
+  </g>
+  <path d="M126 31h.8M126 83h.8" stroke="#b59c60" stroke-width="2"/>
+  <text x="143" y="59" fill="#29372d" font-family="Georgia, 'Times New Roman', serif" font-size="35" letter-spacing="2.3">HASRET</text>
+  <text x="146" y="81" fill="#657147" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="600" letter-spacing="3.8">ZEYTİNCİLİK</text>
+  <path d="M146 91h194" stroke="#b59c60" stroke-width="1"/>
+</svg>

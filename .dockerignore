@@ -1,0 +1,15 @@
+node_modules
+dist
+.venv
+__pycache__
+**/__pycache__
+backend/instance
+.local
+.git
+.gitignore
+.env
+reference*.html
+reference*.json
+*.log
+*.cpuprofile
+*.sqlite3

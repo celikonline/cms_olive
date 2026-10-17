@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    image: hasret-zeytincilik
+    container_name: hasret-zeytincilik
+    restart: unless-stopped
+    ports:
+      - "7030:7030"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "7030"
+      DATA_DIR: "/data"
+      ADMIN_FILE: "/data/admin.txt"
+      # HTTPS (ters vekil) arkasında yayınlıyorsanız 1 yapın; düz HTTP'de 0 kalmalı.
+      COOKIE_SECURE: "0"
+    volumes:
+      # Mevcut veritabanı, yüklenen görseller ve sesli notlar (ilk kurulumda boş kalır).
+      - ./backend/instance:/data
+      # İsimli birim tercih ederseniz üstteki satırı kaldırıp bunu açın (Linux izin sorunlarına karşı):
+      # - hasret-data:/data
+
+# volumes:
+#   hasret-data:
