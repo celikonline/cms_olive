@@ -1,0 +1,28 @@
+{
+  "id": "/admin",
+  "name": "Hasret Zeytincilik Yönetim",
+  "short_name": "Hasret Yönetim",
+  "description": "Hasret Zeytincilik mağaza ve saha yönetim paneli.",
+  "start_url": "/admin",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f6f7f3",
+  "theme_color": "#60734a",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/hasret-zeytincilik-balmumu.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Müşteriler", "short_name": "Müşteriler", "url": "/admin/customers" },
+    { "name": "Hatırlatma takvimi", "short_name": "Takvim", "url": "/admin/customers?tab=takvim" },
+    { "name": "Siparişler", "short_name": "Siparişler", "url": "/admin/orders" }
+  ]
+}

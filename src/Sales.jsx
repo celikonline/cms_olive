@@ -1,6 +1,6 @@
 import React,{useEffect,useMemo,useRef,useState} from 'react';
 import {Link,useSearchParams} from 'react-router-dom';
-import {AlertTriangle,Archive,CalendarClock,Check,ChevronLeft,ChevronRight,Download,Mic,Navigation,Pencil,Phone,Plus,Save,Search,Square,Trash2,Users,X} from 'lucide-react';
+import {AlertTriangle,Archive,CalendarClock,Check,ChevronLeft,ChevronRight,Mic,Navigation,Pencil,Phone,Plus,Save,Search,Square,Trash2,Users,X} from 'lucide-react';
 import {api,money} from './api';
 import {useStore} from './main';
 
@@ -53,7 +53,7 @@ export default function Customers({data,reload}){
     orders:rows.flatMap(c=>c.orders||[]).filter(o=>inLastYear(o.at)).length};
   const open=id=>setEditor(id?structuredClone(all.find(c=>c.id===id)):{name:'',phone:'',address:'',city:'',note:'',salesperson:settings.field_salespeople?.[0]||'Müfit',source:'Saha',location:null,cycle_months:settings.renewal_months??12,reminder_lead_days:settings.reminder_lead_days??30,last_order_at:'',next_reminder_at:'',active:true});
   return <>
-    <div className="saha-bar"><div className="tabs"><button className={tab==='liste'?'selected':''} onClick={()=>setParams({})}>Müşteriler</button><button className={tab==='takvim'?'selected':''} onClick={()=>setParams({tab:'takvim'})}>Hatırlatma takvimi</button></div><InstallButton/></div>
+    <div className="saha-bar"><div className="tabs"><button className={tab==='liste'?'selected':''} onClick={()=>setParams({})}>Müşteriler</button><button className={tab==='takvim'?'selected':''} onClick={()=>setParams({tab:'takvim'})}>Hatırlatma takvimi</button></div></div>
     <div className="saha-stats">{[['Aktif müşteri',active.length,'Kayıtlı saha müşterisi','','tumu'],['Yenilenecek',stats.soon,'Hatırlatma aralığında','warn','yenilenecek'],['Geciken',stats.late,'Aranması gereken','late','late'],['Son 12 ay',money(stats.revenue),stats.orders+' sipariş','','tumu']].map(([label,value,note,cls,key])=><article className={'saha-stat '+cls} key={label} role="button" tabIndex={0} title="Bu listeyi göster" onClick={()=>setFilter(key)} onKeyDown={e=>{if(e.key==='Enter')setFilter(key)}}><span>{label}</span><strong>{value}</strong><small>{note}</small></article>)}</div>
     {error&&<div className="error" role="alert">{error}<button onClick={reload}>Tekrar dene</button></div>}
     {tab==='takvim'?<RenewalCalendar customers={rows} onOpen={open} onOrder={setOrderFor}/>
@@ -64,13 +64,6 @@ export default function Customers({data,reload}){
     {editor&&<CustomerEditor customer={editor} settings={settings} reload={reload} close={()=>setEditor(null)}/>}
     {orderFor&&<OrderDialog customer={orderFor} close={()=>setOrderFor(null)} reload={reload} notify={notify}/>}
   </>;
-}
-
-function InstallButton(){
-  const [prompt,setPrompt]=useState(null);const [hidden,setHidden]=useState(false);
-  useEffect(()=>{const handler=e=>{e.preventDefault();setPrompt(e)};window.addEventListener('beforeinstallprompt',handler);return()=>window.removeEventListener('beforeinstallprompt',handler)},[]);
-  if(!prompt||hidden)return null;
-  return <button className="secondary" onClick={async()=>{prompt.prompt();await prompt.userChoice;setPrompt(null);setHidden(true)}}><Download size={16}/>Telefona kur</button>;
 }
 
 function CustomerCard({customer:c,onOpen,onOrder}){

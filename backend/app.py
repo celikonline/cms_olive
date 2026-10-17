@@ -486,7 +486,8 @@ def frontend(path):
     if not dist.exists(): return 'Önce npm run build komutunu çalıştırın.',503
     if path and (dist/path).is_file(): return send_from_directory(dist,path)
     if path.startswith('assets/'): return '',404
-    return send_from_directory(dist,'index.html')
+    page='admin.html' if path=='admin' or path.startswith('admin/') else 'index.html'
+    return send_from_directory(dist,page)
 
 if __name__=='__main__':
     initialize()

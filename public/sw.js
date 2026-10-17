@@ -1,7 +1,6 @@
-/* Altın Gıda servis çalışanı: mağaza kabuğunu ve görselleri önbelleğe alır.
-   /api istekleri her zaman ağdan gider; yönetici verisi ve ses kayıtları önbelleğe alınmaz. */
-const CACHE = 'altin-gida-v1';
-const SHELL = ['/', '/manifest.webmanifest'];
+/* Storefront and admin app shells are cached; all API data remains network-only. */
+const CACHE = 'hasret-zeytincilik-v2';
+const SHELL = ['/', '/admin', '/manifest.webmanifest', '/admin.webmanifest'];
 const MAX_ENTRIES = 160;
 
 self.addEventListener('install', event => {
@@ -27,9 +26,14 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith('/api/')) return;
   if (request.mode === 'navigate') {
+    const cacheKey = url.pathname === '/admin' || url.pathname.startsWith('/admin/') ? '/admin' : '/';
     event.respondWith(fetch(request)
-      .then(response => { caches.open(CACHE).then(cache => cache.put('/', response.clone())).catch(() => {}); return response; })
-      .catch(() => caches.match('/').then(hit => hit || caches.match(request)).then(hit => hit || new Response('Çevrimdışı', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } }))));
+      .then(response => { caches.open(CACHE).then(cache => cache.put(cacheKey, response.clone())).catch(() => {}); return response; })
+      .catch(async () => {
+        const cache = await caches.open(CACHE);
+        const hit = await cache.match(cacheKey) || await cache.match('/') || await cache.match(request);
+        return hit || new Response('Çevrimdışı', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+      }));
     return;
   }
   event.respondWith(caches.match(request).then(hit => hit || fetch(request).then(response => {

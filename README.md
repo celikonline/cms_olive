@@ -30,7 +30,7 @@ docker compose up -d --build
 - `backend/instance` klasörü konteynerde `/data` dizinine bağlanır; mevcut SQLite veritabanı, görseller ve sesli notlar korunur. Klasör boşsa başlangıç verileri yüklenir ve yönetici şifresi `backend/instance/admin.txt` dosyasına yazılır (mevcut kurulumda şifre `.local/admin.txt` içindedir).
 - İsimli birim (named volume) tercih ederseniz `docker-compose.yml` içindeki yorum satırlarını açın; veriler Docker biriminde tutulur ve Linux'ta izin sorunları yaşanmaz.
 - Ortam değişkenleri: `PORT` (varsayılan 7030), `HOST` (imajda `0.0.0.0`), `DATA_DIR`, `ADMIN_FILE`, `ADMIN_PASSWORD`, `SECRET_KEY`, `COOKIE_SECURE`.
-- HTTPS arkasında yayınlıyorsanız `docker-compose.yml` içinde `COOKIE_SECURE: "1"` yapın; düz HTTP'de `0` kalmalıdır, aksi hâlde tarayıcı oturum çerezini göndermez.
+- Docker yapılandırması HTTPS yayın için `COOKIE_SECURE: "1"` kullanır. Uygulama yerelde `127.0.0.1:7030` adresinden açılır ve `ototeklif-dev-frontend` adlı Cloudflare tünel ağına bağlanır; tünelde `zeyme.angorasigorta.site` için origin `http://hasret-zeytincilik:7030` olmalıdır.
 - PWA kurulumu, konum ve mikrofon güvenli bağlam gerektirir: `http://127.0.0.1:7030` ve HTTPS çalışır, `http://<yerel-ip>:7030` çalışmaz.
 - Arayüzde değişiklik yaptıktan sonra aynı komutu tekrar çalıştırın; imaj yeniden derlenir.
 
@@ -62,7 +62,7 @@ Müşteriler yönetim panelindeki **Müşteriler** bölümünden yönetilir (`/a
 
 ## PWA ve telefon kullanımı
 
-- `public/manifest.webmanifest` uygulama adını, ikonları, tema rengini ve kısayolları (Müşteriler, Hatırlatma takvimi, Panel) tanımlar; `public/sw.js` uygulama kabuğunu ve görselleri önbelleğe alır. Önbelleği yenilemek için `sw.js` içindeki `CACHE` adını değiştirin.
+- Mağaza PWA’sı `public/manifest.webmanifest`, yönetim uygulaması ise `public/admin.webmanifest` manifestini kullanır. Yönetim uygulamasını kurarken `/admin` sayfasını açın; ana ekrandaki uygulama doğrudan yönetim panelini başlatır. Android/Chrome’da paneldeki yükleme düğmesini, iPhone/iPad’de Safari Paylaş → Ana Ekrana Ekle yolunu kullanın. `public/sw.js` mağaza ve yönetim uygulama kabuklarını önbelleğe alır; yönetim verileri ve API işlemleri için internet bağlantısı gerekir.
 - Kurulum (ana ekrana ekleme), konum ve mikrofon **güvenli bağlam** gerektirir. `http://127.0.0.1:8000` güvenli sayılır; telefondan yerel ağ IP'si ile `http://` üzerinden açıldığında bu özellikler çalışmaz. Telefonda kullanmak için HTTPS'e (ters vekil veya tünel) geçin.
 - Sesi yazıya çevirme tarayıcı desteğine bağlıdır (Chrome/Android’de çevrimiçi çalışır). Desteklenmeyen tarayıcıda ses kaydı saklanır, not elle yazılabilir.
 

@@ -5,19 +5,29 @@ services:
     container_name: hasret-zeytincilik
     restart: unless-stopped
     ports:
-      - "7030:7030"
+      - "127.0.0.1:7030:7030"
     environment:
       HOST: "0.0.0.0"
       PORT: "7030"
       DATA_DIR: "/data"
       ADMIN_FILE: "/data/admin.txt"
       # HTTPS (ters vekil) arkasında yayınlıyorsanız 1 yapın; düz HTTP'de 0 kalmalı.
-      COOKIE_SECURE: "0"
+      COOKIE_SECURE: "1"
     volumes:
       # Mevcut veritabanı, yüklenen görseller ve sesli notlar (ilk kurulumda boş kalır).
       - ./backend/instance:/data
       # İsimli birim tercih ederseniz üstteki satırı kaldırıp bunu açın (Linux izin sorunlarına karşı):
       # - hasret-data:/data
+    networks:
+      default: {}
+      cloudflare:
+        aliases:
+          - hasret-zeytincilik
+
+networks:
+  cloudflare:
+    external: true
+    name: ototeklif-dev-frontend
 
 # volumes:
 #   hasret-data:

@@ -12,6 +12,7 @@ export const useStore = () => useContext(Context);
 
 function App() {
   const [data, setData] = useState(null), [error,setError]=useState(''), [notice,setNotice]=useState('');
+  const location=useLocation();
   const [cart,setCart]=useState(()=>{try{return JSON.parse(localStorage.getItem('altin-cart')||'[]')}catch{return []}});
   const [cartOpen,setCartOpen]=useState(false);
   const refresh = async () => { try {setData(await api('/store'));setError('')} catch(e){setError(e.message)} };
@@ -27,7 +28,17 @@ function App() {
   const updateQty=(id,q)=>setCart(old=>q<1?old.filter(i=>i.variant_id!==id):old.map(i=>i.variant_id===id?{...i,quantity:Math.min(q,100)}:i));
   if(error&&!data) return <div className="load-screen"><Sprout size={42}/><h1>Bağlantı kurulamadı</h1><p>{error}</p><button onClick={refresh}>Tekrar dene</button></div>;
   if(!data) return <div className="load-screen"><Sprout size={42}/><p>Doğallık sofranıza geliyor…</p></div>;
-  return <Context.Provider value={{...data,refresh,cart,setCart,add,updateQty,cartOpen,setCartOpen,notify:setNotice}}><ScrollReset/><Routes><Route path="/admin/*" element={<Admin/>}/><Route path="/*" element={<Storefront/>}/></Routes>{notice&&<div role="status" className="toast">{notice}</div>}</Context.Provider>;
+  return <Context.Provider value={{...data,refresh,cart,setCart,add,updateQty,cartOpen,setCartOpen,notify:setNotice}}><PwaRouteMetadata pathname={location.pathname}/><ScrollReset/><Routes><Route path="/admin/*" element={<Admin/>}/><Route path="/*" element={<Storefront/>}/></Routes>{notice&&<div role="status" className="toast">{notice}</div>}</Context.Provider>;
+}
+function PwaRouteMetadata({pathname}){
+  useEffect(()=>{
+    const admin=pathname.startsWith('/admin');
+    document.querySelector('link[rel="manifest"]')?.setAttribute('href',admin?'/admin.webmanifest':'/manifest.webmanifest');
+    const appTitle=document.querySelector('meta[name="apple-mobile-web-app-title"]');
+    if(appTitle)appTitle.setAttribute('content',admin?'Hasret Yönetim':'Hasret Zeytincilik');
+    document.title=admin?'Hasret Yönetim':'Hasret Zeytincilik - Üreticiden Sofralara';
+  },[pathname]);
+  return null;
 }
 function ScrollReset(){const {pathname}=useLocation();useEffect(()=>{window.scrollTo(0,0)},[pathname]);return null}
 function Storefront(){return <><Header/><main><Routes><Route path="/" element={<Home/>}/><Route path="/urunler" element={<Catalog/>}/><Route path="/sepet" element={<CartPage/>}/><Route path="/siparis" element={<Checkout/>}/><Route path="/pages/:slug" element={<Page/>}/><Route path="/blog" element={<Blog/>}/><Route path="/blog/:slug" element={<Blog/>}/><Route path="/:slug" element={<CategoryOrProduct/>}/><Route path="*" element={<NotFound/>}/></Routes></main><Footer/><CartDrawer/></>}

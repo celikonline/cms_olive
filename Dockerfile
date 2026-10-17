@@ -4,7 +4,7 @@ FROM node:22-alpine AS build
 WORKDIR /build
 COPY package.json package-lock.json ./
 RUN npm ci
-COPY index.html vite.config.js ./
+COPY index.html admin.html vite.config.js ./
 COPY src ./src
 COPY public ./public
 RUN npm run build
